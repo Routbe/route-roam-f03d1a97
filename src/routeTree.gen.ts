@@ -278,6 +278,7 @@ import { Route as AuthenticatedSignIndexRouteImport } from './routes/_authentica
 import { Route as AuthenticatedStudioAccountRouteImport } from './routes/_authenticated/studio_.account'
 import { Route as AuthenticatedStudioAgendaRouteImport } from './routes/_authenticated/studio_.agenda'
 import { Route as AuthenticatedStudioBookingRouteImport } from './routes/_authenticated/studio_.booking'
+import { Route as AuthenticatedVerifyHandleSelectRouteImport } from './routes/_authenticated/verify_.handle-select'
 import { Route as ApiBookingsIdRouteImport } from './routes/api.bookings.$id'
 import { Route as ApiAccessVerifyRouteImport } from './routes/api_.access.verify'
 import { Route as ApiAdminMailCheckRouteImport } from './routes/api_.admin.mail-check'
@@ -1869,6 +1870,12 @@ const AuthenticatedStudioBookingRoute =
     path: '/studio/booking',
     getParentRoute: () => AuthenticatedRoute,
   } as any)
+const AuthenticatedVerifyHandleSelectRoute =
+  AuthenticatedVerifyHandleSelectRouteImport.update({
+    id: '/verify_/handle-select',
+    path: '/verify/handle-select',
+    getParentRoute: () => AuthenticatedRoute,
+  } as any)
 const ApiBookingsIdRoute = ApiBookingsIdRouteImport.update({
   id: '/bookings/$id',
   path: '/bookings/$id',
@@ -3224,6 +3231,7 @@ export interface FileRoutesByFullPath {
   '/studio/account': typeof AuthenticatedStudioAccountRoute
   '/studio/agenda': typeof AuthenticatedStudioAgendaRoute
   '/studio/booking': typeof AuthenticatedStudioBookingRoute
+  '/verify/handle-select': typeof AuthenticatedVerifyHandleSelectRoute
   '/api/bookings/$id': typeof ApiBookingsIdRoute
   '/api/access/verify': typeof ApiAccessVerifyRoute
   '/api/admin/mail-check': typeof ApiAdminMailCheckRoute
@@ -3678,6 +3686,7 @@ export interface FileRoutesByTo {
   '/studio/account': typeof AuthenticatedStudioAccountRoute
   '/studio/agenda': typeof AuthenticatedStudioAgendaRoute
   '/studio/booking': typeof AuthenticatedStudioBookingRoute
+  '/verify/handle-select': typeof AuthenticatedVerifyHandleSelectRoute
   '/api/bookings/$id': typeof ApiBookingsIdRoute
   '/api/access/verify': typeof ApiAccessVerifyRoute
   '/api/admin/mail-check': typeof ApiAdminMailCheckRoute
@@ -4149,6 +4158,7 @@ export interface FileRoutesById {
   '/_authenticated/studio_/account': typeof AuthenticatedStudioAccountRoute
   '/_authenticated/studio_/agenda': typeof AuthenticatedStudioAgendaRoute
   '/_authenticated/studio_/booking': typeof AuthenticatedStudioBookingRoute
+  '/_authenticated/verify_/handle-select': typeof AuthenticatedVerifyHandleSelectRoute
   '/api/bookings/$id': typeof ApiBookingsIdRoute
   '/api_/access/verify': typeof ApiAccessVerifyRoute
   '/api_/admin/mail-check': typeof ApiAdminMailCheckRoute
@@ -4621,6 +4631,7 @@ export interface FileRouteTypes {
     | '/studio/account'
     | '/studio/agenda'
     | '/studio/booking'
+    | '/verify/handle-select'
     | '/api/bookings/$id'
     | '/api/access/verify'
     | '/api/admin/mail-check'
@@ -5075,6 +5086,7 @@ export interface FileRouteTypes {
     | '/studio/account'
     | '/studio/agenda'
     | '/studio/booking'
+    | '/verify/handle-select'
     | '/api/bookings/$id'
     | '/api/access/verify'
     | '/api/admin/mail-check'
@@ -5545,6 +5557,7 @@ export interface FileRouteTypes {
     | '/_authenticated/studio_/account'
     | '/_authenticated/studio_/agenda'
     | '/_authenticated/studio_/booking'
+    | '/_authenticated/verify_/handle-select'
     | '/api/bookings/$id'
     | '/api_/access/verify'
     | '/api_/admin/mail-check'
@@ -7904,6 +7917,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedStudioBookingRouteImport
       parentRoute: typeof AuthenticatedRoute
     }
+    '/_authenticated/verify_/handle-select': {
+      id: '/_authenticated/verify_/handle-select'
+      path: '/verify/handle-select'
+      fullPath: '/verify/handle-select'
+      preLoaderRoute: typeof AuthenticatedVerifyHandleSelectRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
     '/api/bookings/$id': {
       id: '/api/bookings/$id'
       path: '/bookings/$id'
@@ -9472,6 +9492,7 @@ interface AuthenticatedRouteChildren {
   AuthenticatedStudioAccountRoute: typeof AuthenticatedStudioAccountRoute
   AuthenticatedStudioAgendaRoute: typeof AuthenticatedStudioAgendaRoute
   AuthenticatedStudioBookingRoute: typeof AuthenticatedStudioBookingRoute
+  AuthenticatedVerifyHandleSelectRoute: typeof AuthenticatedVerifyHandleSelectRoute
   AuthenticatedDashboardIndexRoute: typeof AuthenticatedDashboardIndexRoute
   AuthenticatedSignIndexRoute: typeof AuthenticatedSignIndexRoute
   AuthenticatedStudioPersonalFeatureRoute: typeof AuthenticatedStudioPersonalFeatureRoute
@@ -9502,6 +9523,7 @@ const AuthenticatedRouteChildren: AuthenticatedRouteChildren = {
   AuthenticatedStudioAccountRoute: AuthenticatedStudioAccountRoute,
   AuthenticatedStudioAgendaRoute: AuthenticatedStudioAgendaRoute,
   AuthenticatedStudioBookingRoute: AuthenticatedStudioBookingRoute,
+  AuthenticatedVerifyHandleSelectRoute: AuthenticatedVerifyHandleSelectRoute,
   AuthenticatedDashboardIndexRoute: AuthenticatedDashboardIndexRoute,
   AuthenticatedSignIndexRoute: AuthenticatedSignIndexRoute,
   AuthenticatedStudioPersonalFeatureRoute:
