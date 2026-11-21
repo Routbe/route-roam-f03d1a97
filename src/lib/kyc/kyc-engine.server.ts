@@ -73,7 +73,7 @@ export async function startDiditKyc(userId: string, originInput: string | null):
       where state = ${state} and provider = 'didit'`;
     const { createDiditSession, DiditError } = await import("./didit-client.server");
     try {
-      const s = await createDiditSession({ vendorData: sealVendorRef(userId, state, pepper()), callback: `${origin}/settings?identity=pending` });
+      const s = await createDiditSession({ vendorData: sealVendorRef(userId, state, pepper()), callback: `${origin}/verify/handle-select` });
       return { ok: true, session_url: s.url, session_token: s.sessionToken };
     } catch (e) {
       await sql`delete from public.identity_verification_sessions where state = ${state}`.catch(() => undefined);
