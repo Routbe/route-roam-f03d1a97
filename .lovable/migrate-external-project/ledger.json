@@ -1,0 +1,96 @@
+{
+  "source": "github:Routbe/route-roam-31160c5a@main",
+  "capabilities": [
+    {
+      "capability": "code",
+      "source": "TanStack Start app (396 route files, MDX docs, wasm, worker, scripts)",
+      "outcome": "copied as-is; TanStack versions unchanged",
+      "status": "done",
+      "next_action": "none"
+    },
+    {
+      "capability": "schema",
+      "source": "Neon Postgres, db/*.sql migrations (~272 tables)",
+      "outcome": "keep on Neon (user decision pending, Neon in use)",
+      "status": "pending_decision",
+      "next_action": "user answers Neon vs Lovable Cloud"
+    },
+    {
+      "capability": "records",
+      "source": "Neon",
+      "outcome": "stay in Neon if kept; otherwise CSV/JSON export needed",
+      "status": "pending_decision",
+      "next_action": "depends on database decision"
+    },
+    {
+      "capability": "auth identities",
+      "source": "Better Auth passkeys + OPAQUE in Neon",
+      "outcome": "keep with Neon",
+      "status": "pending_decision",
+      "next_action": "depends on database decision"
+    },
+    {
+      "capability": "authorization",
+      "source": "Postgres RLS + rout_app role",
+      "outcome": "unchanged in Neon",
+      "status": "pending_decision",
+      "next_action": "depends on database decision"
+    },
+    {
+      "capability": "file storage",
+      "source": "Scaleway S3",
+      "outcome": "preserve",
+      "status": "pending",
+      "next_action": "SCALEWAY_* secrets at verification"
+    },
+    {
+      "capability": "payments",
+      "source": "Stripe",
+      "outcome": "preserve",
+      "status": "pending",
+      "next_action": "Stripe keys at verification"
+    },
+    {
+      "capability": "schedules",
+      "source": "vercel.json cron /api/public/cron/cleanup-assets",
+      "outcome": "preserve endpoint; scheduler moves at cutover",
+      "status": "pending",
+      "next_action": "set up scheduler at cutover"
+    },
+    {
+      "capability": "public endpoints / OAuth / webhooks",
+      "source": "src/routes/api/**, OIDC provider routes",
+      "outcome": "preserve",
+      "status": "pending",
+      "next_action": "verify after secrets"
+    },
+    {
+      "capability": "secrets",
+      "source": "DATABASE_URL, BETTER_AUTH_SECRET, SCALEWAY_*, Stripe, OMNI_*, others",
+      "outcome": "request via secure form before verification",
+      "status": "pending",
+      "next_action": "ask at verification"
+    },
+    {
+      "capability": "omni worker",
+      "source": "worker/ (separate Node process)",
+      "outcome": "code preserved; runs outside the web app",
+      "status": "pending",
+      "next_action": "host separately at cutover"
+    },
+    {
+      "capability": "cutover",
+      "source": "Vercel/old host",
+      "outcome": "pending",
+      "status": "pending",
+      "next_action": "after verification"
+    },
+    {
+      "capability": "verification",
+      "source": "-",
+      "outcome": "build OK; /, /login, /docs render on desktop and phone without errors",
+      "status": "partial",
+      "next_action": "sign-in and data checks after Neon + secrets are connected"
+    }
+  ]
+}

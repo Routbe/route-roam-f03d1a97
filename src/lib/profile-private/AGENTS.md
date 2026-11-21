@@ -1,0 +1,3 @@
+# Profile field encryption (A1)
+- Private profile fields are written only through profileFieldPatch/writeProfilePrivateFields and read through openProfileRows (src/lib/profile-private/sealed-profile.server.ts); field keys exist in Neon only wrapped under ROUT_VAULT_KEK (vault_enclave.profile_field_keys, db/0287), and a field joins BACKFILL_FIELDS only in the change that moves its last plaintext reader. Why: sealing a field before its readers move silently blanks it in the app.
+- is_shadowbanned stays plaintext and referred_by is read through rout_profile_referred_mine. Why: SQL visibility and referral logic run inside the database.
