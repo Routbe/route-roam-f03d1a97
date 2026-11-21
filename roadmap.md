@@ -545,3 +545,10 @@
 - [ ] P3: handle pas na KYC, canonieke hernoeming na Didit, team-goedkeuringen, exacte admin-naam (wacht op eigenaarskeuzes + migratie-GO)
 - [x] P4: autonomous-agent e2e-test (live deel met ROUT_E2E_ORIGIN), HANDOVER-appendix 0297
 - [x] P4: volledige testsuite groen (3921 geslaagd, 10 overgeslagen, 0 mislukt)
+
+## Prioriteit 3 — handles en dubbel profiel
+- [x] Tests handle-generator, keuzescherm /verify/handle-select, Didit-terugkeer naar het keuzescherm
+- [x] db/0298 live op Neon (2026-11-21, nagekeken)
+- [x] Keuzescherm in nl/en/fr/de
+- [ ] db-pending/0299 (CONTRACT): wacht tot productie schema 0298 meldt (eigenaar deployt main)
+- [ ] Keuzescherm testen met een echte Didit-verificatie (eigenaar)
